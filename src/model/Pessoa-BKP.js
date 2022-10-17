@@ -3,31 +3,13 @@ import axios from 'axios'
 import {
   DataGrid,
   GridToolbar,
-  //GridToolbarContainer,
-  //GridToolbarFilterButton,
+  GridToolbarContainer,
+  GridToolbarFilterButton,
   GridLinkOperator
 } from '@mui/x-data-grid'
+//import { Autocomplete } from '@mui/material'
 
 
-//const GetPessoas = () => {
-function GetPessoas (){
-  const [data, setData] = useState([])
-
-  const getData = async () => {
-    await axios.get('https://www.balldontlie.io/api/v1/teams').then((res) => {
-      setData(res.data.data)
-    })
-  }
-
-  useEffect(() => {
-    getData()
-  }, [])
-
-  //console.log(data)
-}
-
-
-//GRID - PESSOA 1:
 const columns = [
   { field: 'id', headerName: 'ID', type: 'number', width: '20' },
   { field: 'abbreviation', headerName: 'Abbrev.', width: 65},
@@ -37,25 +19,49 @@ const columns = [
   { field: 'full_name', headerName: 'Full Name', flex: 1 },
   { field: 'name', headerName: 'Name', flex: 1 },
 ]
+/*const rows = data.map((row) => ({
+  id: row.id,
+  abbreviation: row.abbreviation,
+}))*/
+
+/*const initialState = {
+  filter: {
+    filterModel: {
+      items: [
+        {
+          id: 1,
+          columnField: 'id',
+          operatorValue: 'contains',
+          value: '1',
+        },
+        {
+          id: 2,
+          columnField: 'abbreviation',
+          operatorValue: 'contains',
+          value: 'D',
+        },
+      ],
+    },
+  },
+};*/
+const Pessoa2 = () => {
+  const var1 = 'pessoas2'
+  return (
+    <div>{var1}</div>
+  )
+}
 
 const Pessoa1 = () => {
   const [data, setData] = useState([])
-  //GetPessoas()
-  //setData(GetPessoas())
-  //console.log(data)
-  /*const getPessoa = async () => {
+  const getPessoa = async () => {
     await axios.get('https://www.balldontlie.io/api/v1/teams').then((res) => {
       setData(res.data.data)
     })
   }
-  */
+
   useEffect(() => {
-    //getPessoa()
-    //setData('{"id":"1","abbreviation":"ATL","city":"Atlanta","conference":"East","division":"Southeast","full_name":"Atlanta Hawks","name":"Hawks"}')
+    getPessoa()
   }, [])
-
-
-
 
   //console.log(JSON.stringify(data))
   //console.log(data)
@@ -73,6 +79,12 @@ const Pessoa1 = () => {
         disableColumnSelector
         //disableDensitySelector
         components={{ Toolbar: GridToolbar }}
+        /*componentsProps={{
+          toolbar: {
+            showQuickFilter: true,
+            quickFilterProps: { debounceMs: 500 },
+          },
+        }}*/
         componentsProps={{
           toolbar: {
             showQuickFilter: true,
@@ -131,40 +143,6 @@ const Pessoa1 = () => {
   )
 }
 
-//GRID - PESSOA 1:
-const Pessoa2 = () => {
-  const var1 = 'pessoas2'
-  return (
-    <div>{var1}</div>
-  )
-}
-
 const Pessoa = { Pessoa1, Pessoa2 }
 export default Pessoa
-
-/*const rows = data.map((row) => ({
-  id: row.id,
-  abbreviation: row.abbreviation,
-}))*/
-
-/*const initialState = {
-  filter: {
-    filterModel: {
-      items: [
-        {
-          id: 1,
-          columnField: 'id',
-          operatorValue: 'contains',
-          value: '1',
-        },
-        {
-          id: 2,
-          columnField: 'abbreviation',
-          operatorValue: 'contains',
-          value: 'D',
-        },
-      ],
-    },
-  },
-};*/
 
