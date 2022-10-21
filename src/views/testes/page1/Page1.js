@@ -22,7 +22,7 @@ const Page1 = () => {
           Using the most basic table CoreUI, here&#39;show <code>&lt;@MUI/x-data-grid&gt;</code>-based
           tables look in @MUI.
         </p>
-        <Pessoa.Pessoa1 />
+        <Pessoa />
       </CCardBody>
     </CCard>
   </CCol>
